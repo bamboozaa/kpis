@@ -82,6 +82,8 @@ class UserController extends Controller
             // Update other fields as needed
         ]);
 
+        session()->flash('success', 'User update successfully.');
+
         return redirect()->route('users.show', $user->id);
     }
 

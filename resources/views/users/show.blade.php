@@ -5,6 +5,19 @@
     {{ Html::style('css/custom.css') }}
 @stop
 
+@section('importjs')
+    @parent
+    <script type="module">
+        @if(session('success'))
+            Swal.fire({
+                title: 'Success!',
+                text: '{{ session('success') }}',
+                icon: 'success'
+            });
+        @endif
+    </script>
+@stop
+
 @section('content')
     @include('inc.function')
     {{-- <section class="player-header t19584 inactive" data-widget="local-club" data-club-id="15">

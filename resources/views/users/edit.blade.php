@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Edit User')
 
 @section('importcss')
     @parent
@@ -54,4 +55,10 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('footer')
+
+    @include('footer')
+
 @endsection

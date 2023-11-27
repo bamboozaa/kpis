@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'All Departments')
 
 @section('importcss')
     @parent
@@ -22,13 +23,21 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-5">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/home">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Departments</li>
                     </ol>
                 </nav>
+            </div>
+            <div class="col-md-3" style="text-align: right!important;">
+                <a href="{{ route('departments.create') }}" class="btn btn-primary mb-2"><i class="bi bi-plus-square"></i> Create New Department</a>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+
                 <div class="card">
                     <div class="card-header">{{ __('All Departments') }}</div>
 
@@ -52,12 +61,12 @@
                                             <td class="text-center text-nowrap">
                                                 <a href="{{ route('departments.edit', $department->dep_id) }}"
                                                     class="btn btn-warning btn-sm">Edit</a>
-                                                <form action="{{ route('departments.destroy', $department->dep_id) }}" method="POST" style="display: inline;">
+                                                {{-- <form action="{{ route('departments.destroy', $department->dep_id) }}" method="POST" style="display: inline;">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"
                                                         onclick="return confirm('Are you sure you want to delete this department?')">Delete</button>
-                                                </form>
+                                                </form> --}}
                                             </td>
                                         </tr>
                                     @endforeach
@@ -69,4 +78,10 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('footer')
+
+    @include('footer')
+
 @endsection
