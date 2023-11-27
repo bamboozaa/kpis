@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('inc.function')
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -29,6 +31,33 @@
                             <h1>{{ __('PERFORMANCE REVIEW FORM') }}</h1>
                             <p>{{ __('(แบบประเมินผลการปฏิบัติงาน)') }}</p>
                             <p>{{ __('ประจำปีการศึกษา') . $current_year2 }}</p>
+                        </div>
+
+                        <div class="row">
+                            <div class="table-responsive mt-3">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th scope="col" class="text-center text-nowrap"
+                                            style="background-color: #f3f3f3">ชื่อ - สกุล :</th>
+                                        <td>{{ Auth::user()->fullname }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col" class="text-center text-nowrap"
+                                            style="background-color: #f3f3f3">ตำแหน่งงานปัจจุบัน :</th>
+                                        <td>{{ Auth::user()->position }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col" class="text-center text-nowrap"
+                                            style="background-color: #f3f3f3">หน่วยงาน :</th>
+                                        <td>{{ getDepartment(Auth::user()->department) }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col" class="text-center text-nowrap"
+                                            style="background-color: #f3f3f3">ชื่อผู้บังคับบัญชาโดยตรง :</th>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
