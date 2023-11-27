@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('divisions', function (Blueprint $table) {
-            $table->id();
+            $table->id('div_id');
+            $table->bigInteger('dep_id');
+            $table->string('div_name');
             $table->timestamps();
         });
     }
