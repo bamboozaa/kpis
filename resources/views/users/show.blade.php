@@ -61,6 +61,11 @@
                         </div> --}}
 
                         <div class="mb-3">
+                            <label for="position" class="form-label">ตำแหน่งงานปัจจุบัน :</label>
+                            <input type="text" class="form-control" id="position" value="{{ $user->position }}" readonly>
+                        </div>
+
+                        <div class="mb-3">
                             <label for="department" class="form-label">หน่วยงาน :</label>
                             <input type="text" class="form-control" id="department" value="{{ getDepartment($user->department) }}" readonly>
                         </div>

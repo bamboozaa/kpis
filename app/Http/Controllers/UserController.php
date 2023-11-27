@@ -66,7 +66,21 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Update a user
+        $user = User::findOrFail($id);
+
+        $request->validate([
+            // 'name' => 'required|string|max:255',
+            // 'email' => 'required|email|unique:users,email,' . $user->id,
+            // Add other validation rules as needed
+        ]);
+
+        $user->update([
+            'position' => $request->input('position'),
+            // Update other fields as needed
+        ]);
+
+        return redirect()->route('users.show', $user->id);
     }
 
     /**
