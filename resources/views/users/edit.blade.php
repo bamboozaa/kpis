@@ -15,7 +15,7 @@
                             @method('PUT')
 
                             <label for="name">Name:</label>
-                            <input type="text" id="name" name="name" value="{{ $user->name }}" required>
+                            <input type="text" id="fullname" name="fullname" value="{{ $user->fullname }}" required>
 
                             <label for="email">Email:</label>
                             <input type="email" id="email" name="email" value="{{ $user->email }}" required>

@@ -6,6 +6,7 @@
 @stop
 
 @section('content')
+    @include('inc.function')
     {{-- <section class="player-header t19584 inactive" data-widget="local-club" data-club-id="15">
 
         <div class="player-header__background t19584">
@@ -50,13 +51,18 @@
                     <div class="card-body">
 
                         <div class="mb-3">
-                            <label for="name" class="form-label">ชื่อ สกุล :</label>
-                            <input type="text" class="form-control" id="name" value="{{ $user->name }}" readonly>
+                            <label for="fullname" class="form-label">ชื่อ สกุล :</label>
+                            <input type="text" class="form-control" id="fullname" value="{{ $user->fullname }}" readonly>
                         </div>
 
-                        <div class="mb-3">
+                        {{-- <div class="mb-3">
                             <label for="email" class="form-label">Email address :</label>
                             <input type="email" class="form-control" id="email" value="{{ $user->email }}" readonly>
+                        </div> --}}
+
+                        <div class="mb-3">
+                            <label for="department" class="form-label">หน่วยงาน :</label>
+                            <input type="text" class="form-control" id="department" value="{{ getDepartment($user->department) }}" readonly>
                         </div>
 
                         <a href="{{ route('users.edit', $user->id) }}">Edit</a>

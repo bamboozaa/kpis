@@ -21,6 +21,7 @@ class User extends Authenticatable
         'objectguid',
         'username',
         'name',
+        'fullname',
         'email',
         'password',
         'department',

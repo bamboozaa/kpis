@@ -296,6 +296,7 @@ return [
         'username' => 'samaccountname',
         'role' => 0,
         'name' => 'cn',
+        'fullname' => 'description',
         'department' => 'department',
 
     ],
