@@ -1,15 +1,27 @@
 @extends('layouts.app')
 
+@section('importcss')
+    @parent
+    {{ Html::style('css/custom.css') }}
+@stop
+
 @section('content')
     @include('inc.function')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('users') }}">Users</a></li>
+                        {{-- <li class="breadcrumb-item"><a href="{{ route('users.show', Auth::user()->id) }}">Profile</a></li> --}}
+                        <li class="breadcrumb-item active" aria-current="page">Edit User Profile</li>
+                    </ol>
+                </nav>
                 <div class="card">
                     <div class="card-header">{{ __('Edit User Profile') }}</div>
 
                     <div class="card-body">
-                        <h1>Edit User</h1>
 
                         <form method="POST" action="{{ route('users.update', $user->id) }}">
                             @csrf

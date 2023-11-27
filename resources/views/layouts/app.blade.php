@@ -16,6 +16,10 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
+    {{-- <link rel="stylesheet" type="text/css" href={{ Html::style('css/main.css') }}> --}}
+
+    <link rel="stylesheet" href="{{ url('css/main.css') }}">
+
     <!-- Custom Style -->
     @yield('importcss')
 </head>
@@ -38,6 +42,24 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-nowrap {{ request()->routeIs('home') ? "active" : "" }}" aria-current="page" href="{{ url('/home') }}">
+                                <i class="bi bi-house"></i>
+                                {{ __(' Home') }}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-nowrap {{ request()->routeIs('users.*') ? "active" : "" }}" href="{{ url('users') }}">
+                                <i class="bi bi-people"></i>
+                                {{ __(' Users') }}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-nowrap {{ request()->routeIs('departments.*') ? "active" : "" }}" href="{{ url('departments') }}">
+                                <i class="bi bi-diagram-2"></i>
+                                {{ __(' Departments') }}
+                            </a>
+                        </li>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))

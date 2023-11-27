@@ -22,7 +22,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        // Display a list of users
+        $users = User::all();
+        return view('users.index', compact('users'));
     }
 
     /**
