@@ -61,7 +61,7 @@
                         <div class="mb-3">
                             <label for="unit" class="form-label">แผนก :</label>
                             <input type="text" class="form-control" id="unit"
-                                value="{{ is_null($user->unit_name['unit_name']) ? "" : $user->unit_name['unit_name'] }}" readonly>
+                                value="{{ isset($user->unit_name['unit_name']) ? "" : $user->unit_name['unit_name'] }}" readonly>
                         </div>
 
                         <a href="{{ route('users.edit', $user->id) }}">Edit</a>
