@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,6 +26,7 @@
     @yield('importcss')
     @yield('importjs')
 </head>
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -32,7 +34,9 @@
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -44,30 +48,6 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link text-nowrap {{ request()->routeIs('home') ? "active" : "" }}" aria-current="page" href="{{ url('/home') }}">
-                                <i class="bi bi-house"></i>
-                                {{ __(' Home') }}
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-nowrap {{ request()->routeIs('users.*') ? "active" : "" }}" href="{{ url('users') }}">
-                                <i class="bi bi-people"></i>
-                                {{ __(' จัดการผู้ใช้งาน') }}
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-nowrap {{ request()->routeIs('departments.*') ? "active" : "" }}" href="{{ url('departments') }}">
-                                <i class="bi bi-diagram-3"></i>
-                                {{ __(' จัดการหน่วยงาน') }}
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-nowrap {{ request()->routeIs('units.*') ? "active" : "" }}" href="{{ url('units') }}">
-                                <i class="bi bi-diagram-2"></i>
-                                {{ __(' จัดการแผนก') }}
-                            </a>
-                        </li>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -82,18 +62,47 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                                <a class="nav-link text-nowrap {{ request()->routeIs('home') ? 'active' : '' }}"
+                                    aria-current="page" href="{{ url('/home') }}">
+                                    <i class="bi bi-house"></i>
+                                    {{ __(' Home') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-nowrap {{ request()->routeIs('users.*') ? 'active' : '' }}"
+                                    href="{{ url('users') }}">
+                                    <i class="bi bi-people"></i>
+                                    {{ __(' จัดการผู้ใช้งาน') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-nowrap {{ request()->routeIs('departments.*') ? 'active' : '' }}"
+                                    href="{{ url('departments') }}">
+                                    <i class="bi bi-diagram-3"></i>
+                                    {{ __(' จัดการหน่วยงาน') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-nowrap {{ request()->routeIs('units.*') ? 'active' : '' }}"
+                                    href="{{ url('units') }}">
+                                    <i class="bi bi-diagram-2"></i>
+                                    {{ __(' จัดการแผนก') }}
+                                </a>
+                            </li>
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('users.show', Auth::user()->id)  }}">
+                                    <a class="dropdown-item" href="{{ route('users.show', Auth::user()->id) }}">
                                         {{ __('User Profile') }}
                                     </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
@@ -115,4 +124,5 @@
         </main>
     </div>
 </body>
+
 </html>
