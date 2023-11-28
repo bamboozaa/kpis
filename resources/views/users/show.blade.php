@@ -53,15 +53,23 @@
                         </div>
 
                         <div class="mb-3">
+                            @php
+                                $department = trim($user->department);
+                                $left_pos = strripos($department, '(') + 1;
+                                $department = substr($department, $left_pos, strlen($department));
+                                $department = substr($department, 0, strlen($department) - 1);
+                                $department = trim($department);
+                            @endphp
                             <label for="department" class="form-label">หน่วยงาน :</label>
-                            <input type="text" class="form-control" id="department"
-                                value="{{ $user->department }}" readonly>
+                            <input type="text" class="form-control" id="department" value="{{ $department }}"
+                                readonly>
                         </div>
 
                         <div class="mb-3">
                             <label for="unit" class="form-label">แผนก :</label>
                             <input type="text" class="form-control" id="unit"
-                                value="{{ isset($user->unit_name['unit_name']) ? $user->unit_name['unit_name'] : "" }}" readonly>
+                                value="{{ isset($user->unit_name['unit_name']) ? $user->unit_name['unit_name'] : '' }}"
+                                readonly>
                         </div>
 
                         <a href="{{ route('users.edit', $user->id) }}">Edit</a>

@@ -9,8 +9,8 @@
 @section('content')
 
     <div class="container">
-        <div class="row">
-            <div class="col-md-9">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
@@ -19,21 +19,28 @@
                     </ol>
                 </nav>
             </div>
-            <div class="col-md-3 text-center" style="text-align: right!important;">
+            <div class="col-md-3" style="text-align: right!important;">
                 <a href="{{ url('departments') }}" class="btn btn-primary mb-2"><i class="bi bi-back"></i> Back</a>
             </div>
         </div>
 
-        <form method="POST" action="{{ route('departments.store') }}">
-            @csrf
-
-            <div class="form-group">
-                <label for="name">Department Name:</label>
-                <input type="text" name="dep_name" id="dep_name" class="form-control my-3" required>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ __('Create Department') }}</div>
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('departments.store') }}">
+                            @csrf
+                            <div class="form-group">
+                                <label for="name">Department Name:</label>
+                                <input type="text" name="dep_name" id="dep_name" class="form-control my-3" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Create Department</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-
-            <button type="submit" class="btn btn-primary">Create Department</button>
-        </form>
+        </div>
     </div>
 @endsection
 

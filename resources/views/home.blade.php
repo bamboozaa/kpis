@@ -1,19 +1,15 @@
 @extends('layouts.app')
+@section('title', 'Home')
 
 @section('content')
-
     <div class="container">
         <div class="row justify-content-center">
+            {{-- <div class="col-md-2"></div> --}}
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
+                    {{-- <div class="card-header">{{ __('Dashboard') }}</div> --}}
 
                     <div class="card-body">
-                        {{-- @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif --}}
 
                         @php
                             $current_year = \Carbon\Carbon::now()->year;
@@ -29,7 +25,7 @@
                         <div class="row text-center">
                             <h1>{{ __('PERFORMANCE REVIEW FORM') }}</h1>
                             <p>{{ __('(แบบประเมินผลการปฏิบัติงาน)') }}</p>
-                            <p>{{ __('ประจำปีการศึกษา') . $current_year2 }}</p>
+                            <p>{{ __('ประจำปีการศึกษา') . $current_year2 + 543 }}</p>
                         </div>
 
                         <div class="row">
@@ -48,12 +44,22 @@
                                     <tr>
                                         <th scope="col" class="text-center text-nowrap"
                                             style="background-color: #f3f3f3">หน่วยงาน :</th>
-                                        <td>{{ Auth::user()->department }}</td>
+                                        <td>
+                                            @php
+                                                $department = trim(Auth::user()->department);
+                                                $left_pos = strripos($department, '(') + 1;
+                                                $department = substr($department, $left_pos, strlen($department));
+                                                $department = substr($department, 0, strlen($department) - 1);
+                                                $department = trim($department);
+                                            @endphp
+                                            {{ $department . " / " . App\Models\Unit::findOrFail(Auth::user()->unit_id)->unit_name }}
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="col" class="text-center text-nowrap"
                                             style="background-color: #f3f3f3">ชื่อผู้บังคับบัญชาโดยตรง :</th>
-                                        <td>{{ App\Models\Unit::findOrFail(Auth::user()->unit_id)->user_name['fullname'] }}</td>
+                                        <td>{{ App\Models\Unit::findOrFail(Auth::user()->unit_id)->user_name['fullname'] }}
+                                        </td>
                                     </tr>
                                 </table>
                             </div>
@@ -63,4 +69,10 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('footer')
+
+    @include('footer')
+
 @endsection
