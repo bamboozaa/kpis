@@ -54,7 +54,7 @@
                                     <tr>
                                         <th scope="col" class="text-center text-nowrap"
                                             style="background-color: #f3f3f3">ชื่อผู้บังคับบัญชาโดยตรง :</th>
-                                        <td></td>
+                                        <td>{{ getOwnerUnitName(Auth::user()->unit_id)->user_name['fullname'] }}</td>
                                     </tr>
                                 </table>
                             </div>

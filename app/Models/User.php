@@ -27,7 +27,12 @@ class User extends Authenticatable
         'password',
         'department',
         'role',
+        'unit_id',
     ];
+
+    public function unit_name() {
+        return $this->hasOne('App\Models\Unit', 'unit_id', 'unit_id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

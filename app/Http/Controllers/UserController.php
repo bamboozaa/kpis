@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Unit;
 
 class UserController extends Controller
 {
@@ -60,7 +61,8 @@ class UserController extends Controller
     {
         // Show the form to edit a user
         $user = User::findOrFail($id);
-        return view('users.edit', compact('user'));
+        $units = Unit::pluck('unit_name', 'unit_id');
+        return view('users.edit', compact('user', 'units'));
     }
 
     /**
@@ -79,6 +81,7 @@ class UserController extends Controller
 
         $user->update([
             'position' => $request->input('position'),
+            'unit_id' => $request->input('unit_id'),
             // Update other fields as needed
         ]);
 

@@ -43,6 +43,16 @@
                                 <input type="text" class="form-control" id="department" name="department" value="{{ getDepartment($user->department) }}" disabled>
                             </div>
 
+                            <div class="row my-3">
+                                <label for="units" class="col-form-label">แผนก :</label>
+                                <div class="col-auto">
+                                    {!! Form::select('unit_id', $units, old('name', $user->unit_id), [
+                                        'class' => 'form-select',
+                                        'placeholder' => 'Please Select ...',
+                                    ]) !!}
+                                </div>
+                            </div>
+
                             {{-- <label for="email">Email:</label>
                             <input type="email" id="email" name="email" value="{{ $user->email }}" required> --}}
 

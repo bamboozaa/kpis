@@ -7,4 +7,9 @@ function getDepartment($department) {
     $dep_full_name = trim($dep_full_name);
     return $dep_full_name;
 }
+
+function getOwnerUnitName($id) {
+    $owner_name = App\Models\Unit::findOrFail($id);
+    return $owner_name;
+}
 @endphp
