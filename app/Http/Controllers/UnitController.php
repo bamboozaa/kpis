@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Unit;
+use App\Models\Department;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UnitController extends Controller
@@ -19,9 +21,10 @@ class UnitController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
+    public function create() {
+        $departments = Department::pluck('dep_name', 'dep_id');
+        $users = User::pluck('fullname', 'username');
+        return view('units.create', compact('departments', 'users'));
     }
 
     /**
@@ -29,7 +32,21 @@ class UnitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'unit_name' => 'required|unique:units',
+            'dep_id' => 'required',
+            'username' => 'required',
+        ]);
+
+        Unit::create([
+            'unit_name' => $request->input('unit_name'),
+            'dep_id' => $request->input('dep_id'),
+            'owner' => $request->input('username'),
+        ]);
+
+        session()->flash('success', 'Unit created successfully.');
+
+        return redirect()->route('units.index');
     }
 
     /**

@@ -48,8 +48,9 @@
                                 <thead>
                                     <tr>
                                         <th scope="col" class="text-center text-nowrap">No.</th>
-                                        <th scope="col" class="text-nowrap">Unit Name</th>
-                                        <th scope="col" class="text-nowrap">Owner</th>
+                                        <th scope="col" class="text-nowrap">ชื่อแผนก</th>
+                                        <th scope="col" class="text-nowrap">ชื่อหน่วยงาน</th>
+                                        <th scope="col" class="text-nowrap">หัวหน้าแผนก</th>
                                         <th scope="col" class="text-center">Actions</th>
                                     </tr>
                                 </thead>
@@ -59,7 +60,8 @@
                                             <tr>
                                                 <td class="text-center">{{ $unit->unit_id }}</td>
                                                 <td>{{ $unit->unit_name }}</td>
-                                                <td>{{ $unit->owner }}</td>
+                                                <td>{{ $unit->department_name['dep_name'] }}</td>
+                                                <td>{{ $unit->user_name['fullname'] }}</td>
                                                 <td class="text-center text-nowrap">
                                                     <a href="{{ route('units.edit', $unit->unit_id) }}" class="btn btn-warning btn-sm">Edit</a>
                                                 </td>
