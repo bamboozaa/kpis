@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Division;
+use App\Models\Unit;
 use Illuminate\Http\Request;
 
-class DivisionController extends Controller
+class UnitController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $units = Unit::all();
+        return view('units.index', compact('units'));
     }
 
     /**
@@ -34,7 +35,7 @@ class DivisionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Division $division)
+    public function show(Unit $unit)
     {
         //
     }
@@ -42,7 +43,7 @@ class DivisionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Division $division)
+    public function edit(Unit $unit)
     {
         //
     }
@@ -50,7 +51,7 @@ class DivisionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Division $division)
+    public function update(Request $request, Unit $unit)
     {
         //
     }
@@ -58,7 +59,7 @@ class DivisionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Division $division)
+    public function destroy(Unit $unit)
     {
         //
     }

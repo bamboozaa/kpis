@@ -5,7 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Division extends Model
+class Unit extends Model
 {
     use HasFactory;
+    protected $table = 'units';
+    protected $fillable = ['unit_name', 'owner'];
+    protected $primaryKey = 'unit_id';
 }

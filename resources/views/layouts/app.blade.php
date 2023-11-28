@@ -53,13 +53,19 @@
                         <li class="nav-item">
                             <a class="nav-link text-nowrap {{ request()->routeIs('users.*') ? "active" : "" }}" href="{{ url('users') }}">
                                 <i class="bi bi-people"></i>
-                                {{ __(' Users') }}
+                                {{ __(' จัดการผู้ใช้งาน') }}
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-nowrap {{ request()->routeIs('departments.*') ? "active" : "" }}" href="{{ url('departments') }}">
+                                <i class="bi bi-diagram-3"></i>
+                                {{ __(' จัดการหน่วยงาน') }}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-nowrap {{ request()->routeIs('units.*') ? "active" : "" }}" href="{{ url('units') }}">
                                 <i class="bi bi-diagram-2"></i>
-                                {{ __(' Departments') }}
+                                {{ __(' จัดการแผนก') }}
                             </a>
                         </li>
                         <!-- Authentication Links -->
