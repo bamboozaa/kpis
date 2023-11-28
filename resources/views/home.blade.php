@@ -53,7 +53,8 @@
                                     <tr>
                                         <th scope="col" class="text-center text-nowrap"
                                             style="background-color: #f3f3f3">ชื่อผู้บังคับบัญชาโดยตรง :</th>
-                                        <td>{{ Auth::user()->unit_id->user_name['fullname'] }}</td>
+                                        {{-- <td>{{ Auth::user()->unit_id->user_name['fullname'] }}</td> --}}
+                                        <td>{{ Auth::user()->unit_id }}</td>
                                     </tr>
                                 </table>
                             </div>
