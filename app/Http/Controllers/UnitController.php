@@ -62,7 +62,8 @@ class UnitController extends Controller
      */
     public function edit(Unit $unit)
     {
-        //
+        $users = User::pluck('fullname', 'username');
+        return view('units.edit', compact('unit', 'users'));
     }
 
     /**
@@ -70,7 +71,11 @@ class UnitController extends Controller
      */
     public function update(Request $request, Unit $unit)
     {
-        //
+        $unit->update($request->all());
+
+        session()->flash('success', 'Unit updated successfully.');
+
+        return redirect()->route('units.index');
     }
 
     /**

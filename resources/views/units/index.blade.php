@@ -51,7 +51,7 @@
                                         <th scope="col" class="text-nowrap">ชื่อแผนก</th>
                                         <th scope="col" class="text-nowrap">ชื่อหน่วยงาน</th>
                                         <th scope="col" class="text-nowrap">หัวหน้าแผนก</th>
-                                        {{-- <th scope="col" class="text-center">Actions</th> --}}
+                                        <th scope="col" class="text-center">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -62,9 +62,9 @@
                                                 <td>{{ $unit->unit_name }}</td>
                                                 <td>{{ $unit->department_name['dep_name'] }}</td>
                                                 <td>{{ $unit->user_name['fullname'] }}</td>
-                                                {{-- <td class="text-center text-nowrap">
+                                                <td class="text-center text-nowrap">
                                                     <a href="{{ route('units.edit', $unit->unit_id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                                </td> --}}
+                                                </td>
                                             </tr>
                                         @endforeach
                                     @else
