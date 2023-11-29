@@ -28,3 +28,5 @@ Route::resource('users', App\Http\Controllers\UserController::class);
 Route::resource('departments', App\Http\Controllers\DepartmentController::class);
 
 Route::resource('units', App\Http\Controllers\UnitController::class);
+
+Route::resource('divisions', App\Http\Controllers\DivisionController::class);

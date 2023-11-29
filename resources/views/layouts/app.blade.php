@@ -77,6 +77,12 @@
                                 </a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link text-nowrap {{ request()->routeIs('divisions.*') ? 'active' : '' }}" href="{{ url('divisions') }}">
+                                    <i class="bi bi-diagram-3-fill"></i>
+                                    {{ __(' จัดการฝ่าย') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link text-nowrap {{ request()->routeIs('departments.*') ? 'active' : '' }}"
                                     href="{{ url('departments') }}">
                                     <i class="bi bi-diagram-3"></i>
