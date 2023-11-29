@@ -52,13 +52,14 @@
                                                 $department = substr($department, 0, strlen($department) - 1);
                                                 $department = trim($department);
                                             @endphp
-                                            {{ $department . " / " . App\Models\Unit::findOrFail(Auth::user()->unit_id)->unit_name }}
+                                            {{ $department . (is_null(Auth::user()->unit_id) ? "" : " / " . App\Models\Unit::findOrFail(Auth::user()->unit_id)->unit_name) }}
                                         </td>
                                     </tr>
                                     <tr>
                                         <th scope="col" class="text-center text-nowrap"
                                             style="background-color: #f3f3f3">ชื่อผู้บังคับบัญชาโดยตรง :</th>
-                                        <td>{{ App\Models\Unit::findOrFail(Auth::user()->unit_id)->user_name['fullname'] }}
+                                        <td>
+                                            {{ is_null(Auth::user()->unit_id) ? "" : App\Models\Unit::findOrFail(Auth::user()->unit_id)->user_name['fullname'] }}
                                         </td>
                                     </tr>
                                 </table>
