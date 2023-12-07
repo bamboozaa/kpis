@@ -26,34 +26,29 @@
             <div class="col-md-8">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/home">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{ url('users') }}">Users</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+                        <li class="breadcrumb-item"><a href="/home">{{ __('Home') }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('users') }}">{{ __('Users') }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ __('User Profile') }}</li>
                     </ol>
                 </nav>
-                <div class="card">
+                <div class="card bg-white">
                     <div class="card-header">{{ __('User Profile') }}</div>
-
                     <div class="card-body">
-
-                        <div class="mb-3">
-                            <label for="fullname" class="form-label">ชื่อ สกุล :</label>
-                            <input type="text" class="form-control" id="fullname" value="{{ $user->fullname }}"
-                                readonly>
+                        <div class="row mb-3">
+                            <label for="fullname" class="col-sm-3 col-form-label">{{ __('ชื่อ สกุล :') }}</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" value="{{ $user->fullname }}" readonly />
+                            </div>
                         </div>
 
-                        {{-- <div class="mb-3">
-                            <label for="email" class="form-label">Email address :</label>
-                            <input type="email" class="form-control" id="email" value="{{ $user->email }}" readonly>
-                        </div> --}}
+                        <div class="row mb-3">
+                            <label for="position" class="col-sm-3 col-form-label">{{ __('ตำแหน่งงานปัจจุบัน :') }}</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" value="{{ $user->position }}" readonly />
+                            </div>
 
-                        <div class="mb-3">
-                            <label for="position" class="form-label">ตำแหน่งงานปัจจุบัน :</label>
-                            <input type="text" class="form-control" id="position" value="{{ $user->position }}"
-                                readonly>
                         </div>
-
-                        <div class="mb-3">
+                        <div class="row mb-3">
                             @php
                                 $department = trim($user->department);
                                 $left_pos = strripos($department, '(') + 1;
@@ -61,19 +56,23 @@
                                 $department = substr($department, 0, strlen($department) - 1);
                                 $department = trim($department);
                             @endphp
-                            <label for="department" class="form-label">หน่วยงาน :</label>
-                            <input type="text" class="form-control" id="department" value="{{ $department }}"
-                                readonly>
+                            <label for="department" class="col-sm-3 col-form-label">{{ __('หน่วยงาน :') }}</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" value="{{ $department }}" readonly />
+                            </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="unit" class="form-label">แผนก :</label>
-                            <input type="text" class="form-control" id="unit"
+                        <div class="row mb-3">
+                            <label for="faculty" class="col-sm-3 col-form-label">{{ __('แผนก :') }}</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="unit"
                                 value="{{ isset($user->unit_name['unit_name']) ? $user->unit_name['unit_name'] : '' }}"
-                                readonly>
+                                readonly />
+                            </div>
+
                         </div>
 
-                        <a href="{{ route('users.edit', $user->id) }}">Edit</a>
+                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-warning">Edit</a>
 
                         {{-- <form method="POST" action="{{ route('users.destroy', $user->id) }}">
                             @csrf

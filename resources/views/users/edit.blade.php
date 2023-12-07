@@ -15,10 +15,10 @@
             <div class="col-md-8">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/home">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{ url('users') }}">Users</a></li>
+                        <li class="breadcrumb-item"><a href="/home">{{ __('Home') }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('users') }}">{{ __('Users') }}</a></li>
                         {{-- <li class="breadcrumb-item"><a href="{{ route('users.show', Auth::user()->id) }}">Profile</a></li> --}}
-                        <li class="breadcrumb-item active" aria-current="page">Edit User Profile</li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ __('Edit User Profile') }}</li>
                     </ol>
                 </nav>
                 <div class="card">
@@ -30,26 +30,33 @@
                             @csrf
                             @method('PUT')
 
-                            <div class="mb-3">
-                                <label for="fullname" class="form-label">ชื่อ สกุล :</label>
-                                <input type="text" class="form-control" id="fullname" name="fullname"
-                                    value="{{ $user->fullname }}" disabled>
+                            <div class="row mb-3">
+                                <label for="fullname" class="col-sm-3 col-form-label">{{ __('ชื่อ สกุล :') }}</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="fullname" value="{{ $user->fullname }}"
+                                        disabled />
+                                </div>
                             </div>
 
-                            <div class="mb-3">
-                                <label for="position" class="form-label">ตำแหน่งงานปัจจุบัน :</label>
-                                <input type="text" class="form-control" id="position" name="position"
-                                    value="{{ $user->position }}">
+                            <div class="row mb-3">
+                                <label for="position"
+                                    class="col-sm-3 col-form-label">{{ __('ตำแหน่งงานปัจจุบัน :') }}</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="position"
+                                        value="{{ $user->position }}">
+                                </div>
                             </div>
 
-                            <div class="mb-3">
-                                <label for="department" class="form-label">หน่วยงาน :</label>
-                                <input type="text" class="form-control" id="department" name="department"
-                                    value="{{ getDepartment($user->department) }}" disabled>
+                            <div class="row mb-3">
+                                <label for="department" class="col-sm-3 col-form-label">{{ __('หน่วยงาน :') }}</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="department"
+                                        value="{{ getDepartment($user->department) }}" disabled />
+                                </div>
                             </div>
 
                             <div class="row my-3">
-                                <label for="units" class="col-form-label">แผนก :</label>
+                                <label for="units" class="col-sm-3 col-form-label">{{ __('แผนก :') }}</label>
                                 <div class="col-auto">
                                     {!! Form::select('unit_id', $units, old('name', $user->unit_id), [
                                         'class' => 'form-select',
@@ -57,11 +64,6 @@
                                     ]) !!}
                                 </div>
                             </div>
-
-                            {{-- <label for="email">Email:</label>
-                            <input type="email" id="email" name="email" value="{{ $user->email }}" required> --}}
-
-                            <!-- Add other form fields as needed -->
 
                             <button class="btn btn-primary" type="submit">Update</button>
                         </form>

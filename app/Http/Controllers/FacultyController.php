@@ -60,7 +60,8 @@ class FacultyController extends Controller
      */
     public function edit(Faculty $faculty)
     {
-        //
+        $departments = Department::pluck('dep_name', 'dep_id');
+        return view('faculties.edit', compact('faculty', 'departments'));
     }
 
     /**
@@ -68,7 +69,11 @@ class FacultyController extends Controller
      */
     public function update(Request $request, Faculty $faculty)
     {
-        //
+        $faculty->update($request->all());
+
+        session()->flash('success', 'Faculty updated successfully.');
+
+        return redirect()->route('faculties.index');
     }
 
     /**

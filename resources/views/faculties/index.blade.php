@@ -58,9 +58,9 @@
                                             <tr>
                                                 <td class="text-center">{{ $faculty->fac_id }}</td>
                                                 <td>{{ $faculty->fac_name }}</td>
-                                                <td>{{ $faculty->department()->dep_name }}</td>
+                                                <td>{{ $faculty->department['dep_name'] }}</td>
                                                 <td class="text-center text-nowrap">
-                                                    <a href="{{ route('faculties.edit', $unit->unit_id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                                    <a href="{{ route('faculties.edit', $faculty->fac_id) }}" class="btn btn-warning btn-sm">Edit</a>
                                                 </td>
                                             </tr>
                                         @endforeach

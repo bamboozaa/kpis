@@ -13,6 +13,6 @@ class Department extends Model
     protected $primaryKey = 'dep_id';
 
     public function faculties(): HasMany {
-        return $this->hasMany(Faculty::class, 'dep_id', 'dep_id');
+        return $this->hasMany(Faculty::class);
     }
 }

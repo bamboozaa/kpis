@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Faculty extends Model
 {
@@ -13,6 +14,6 @@ class Faculty extends Model
     protected $primaryKey = 'fac_id';
 
     public function department(): BelongsTo {
-        return $this->belongsTo(Department::class, 'dep_id', 'dep_id');
+        return $this->belongsTo(Department::class, 'dep_id');
     }
 }
