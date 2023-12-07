@@ -86,14 +86,14 @@
                                 <a class="nav-link text-nowrap {{ request()->routeIs('departments.*') ? 'active' : '' }}"
                                     href="{{ url('departments') }}">
                                     <i class="bi bi-diagram-3"></i>
-                                    {{ __(' จัดการหน่วยงาน') }}
+                                    {{ __(' จัดการหน่วยงาน/คณะ') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-nowrap {{ request()->routeIs('units.*') ? 'active' : '' }}"
-                                    href="{{ url('units') }}">
+                                <a class="nav-link text-nowrap {{ request()->routeIs('faculties.*') ? 'active' : '' }}"
+                                    href="{{ url('faculties') }}">
                                     <i class="bi bi-diagram-2"></i>
-                                    {{ __(' จัดการแผนก') }}
+                                    {{ __(' จัดการแผนก/สาขาวิชา') }}
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
@@ -106,13 +106,11 @@
                                     <a class="dropdown-item" href="{{ route('users.show', Auth::user()->id) }}">
                                         {{ __('User Profile') }}
                                     </a>
-
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>

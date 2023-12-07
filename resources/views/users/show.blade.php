@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Show User')
 
 @section('importcss')
     @parent
