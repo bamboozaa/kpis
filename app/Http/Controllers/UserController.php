@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Unit;
+use App\Models\Faculty;
 
 class UserController extends Controller
 {
@@ -61,8 +62,8 @@ class UserController extends Controller
     {
         // Show the form to edit a user
         $user = User::findOrFail($id);
-        $units = Unit::pluck('unit_name', 'unit_id');
-        return view('users.edit', compact('user', 'units'));
+        $faculties = Faculty::orderBy('fac_name')->pluck('fac_name', 'fac_id');
+        return view('users.edit', compact('user', 'faculties'));
     }
 
     /**

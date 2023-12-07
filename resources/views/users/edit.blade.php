@@ -8,8 +8,6 @@
 
 @section('content')
 
-    @include('inc.function')
-
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -47,18 +45,27 @@
                                 </div>
                             </div>
 
+                            @php
+                                $department = trim($user->department);
+                                $left_pos = strripos($department, '(') + 1;
+                                $department = substr($department, $left_pos, strlen($department));
+                                $department = substr($department, 0, strlen($department) - 1);
+                                $department = trim($department);
+                                $departments = App\Models\Department::where('dep_name', $department)->get();
+                                $faculty = App\Models\Faculty::where('dep_id', '=', $departments[0]['dep_id'])->get();
+                            @endphp
+
                             <div class="row mb-3">
                                 <label for="department" class="col-sm-3 col-form-label">{{ __('หน่วยงาน :') }}</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" name="department"
-                                        value="{{ getDepartment($user->department) }}" disabled />
+                                        value="{{ $department }}" disabled />
                                 </div>
                             </div>
-
                             <div class="row my-3">
-                                <label for="units" class="col-sm-3 col-form-label">{{ __('แผนก :') }}</label>
+                                <label for="faculties" class="col-sm-3 col-form-label">{{ __('แผนก :') }}</label>
                                 <div class="col-auto">
-                                    {!! Form::select('unit_id', $units, old('name', $user->unit_id), [
+                                    {!! Form::select('fac_id', $faculties, $faculty[0]['fac_id'], [
                                         'class' => 'form-select',
                                         'placeholder' => 'Please Select ...',
                                     ]) !!}

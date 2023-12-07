@@ -22,7 +22,7 @@ class FacultyController extends Controller
      */
     public function create()
     {
-        $departments = Department::pluck('dep_name', 'dep_id');
+        $departments = Department::orderBy('dep_name')->pluck('dep_name', 'dep_id');
         // $users = User::pluck('fullname', 'username');
         return view('faculties.create', compact('departments'));
     }
@@ -60,7 +60,7 @@ class FacultyController extends Controller
      */
     public function edit(Faculty $faculty)
     {
-        $departments = Department::pluck('dep_name', 'dep_id');
+        $departments = Department::orderBy('dep_name')->pluck('dep_name', 'dep_id');
         return view('faculties.edit', compact('faculty', 'departments'));
     }
 
