@@ -48,9 +48,8 @@
                             <table class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th scope="col" class="text-center text-nowrap">{{ __('ลำดับ.') }}</th>
+                                        <th scope="col" class="text-center text-nowrap">{{ __('Cost Center') }}</th>
                                         <th scope="col" class="text-nowrap">{{ __('ชื่อหน่วยงาน') }}</th>
-                                        <th scope="col" class="text-nowrap">{{ __('Cost Center') }}</th>
                                         <th scope="col" class="text-nowrap">{{ __('ชื่อฝ่าย') }}</th>
                                         <th scope="col" class="text-center">{{ __('Actions') }}</th>
                                     </tr>
@@ -59,9 +58,8 @@
                                     @if (count($departments) > 0)
                                         @foreach ($departments as $key => $department)
                                             <tr>
-                                                <td class="text-center">{{ $key + 1 }}</td>
+                                                <td class="text-center">{{ $department->cost_center }}</td>
                                                 <td>{{ $department->dep_name }}</td>
-                                                <td>{{ $department->cost_center }}</td>
                                                 <td>{{ isset($department->division['div_name']) ? $department->division['div_name'] : "" }}</td>
                                                 <td class="text-center text-nowrap">
                                                     <a href="{{ route('departments.edit', $department->dep_id) }}"

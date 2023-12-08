@@ -13,8 +13,11 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        // $departments = Department::all()->sortBy('cost_center');
-        $departments = Department::all();
+        $departments = Department::all()->sortBy('cost_center');
+        // $departments = Department::all()->sortBy(function($item) {
+        //     return $item->cost_center;
+        // });
+        // $departments = Department::all();
         return view('departments.index', compact('departments'));
     }
 

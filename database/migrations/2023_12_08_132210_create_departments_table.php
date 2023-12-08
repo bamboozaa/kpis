@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('dep_id');
             $table->integer('div_id')->nullable();
             $table->string('dep_name');
-            $table->string('cost_center', 5)->nullable();
+            $table->integer('cost_center')->nullable();
             $table->timestamps();
         });
     }
