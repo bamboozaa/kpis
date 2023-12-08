@@ -79,14 +79,14 @@
                             <li class="nav-item">
                                 <a class="nav-link text-nowrap {{ request()->routeIs('divisions.*') ? 'active' : '' }}" href="{{ url('divisions') }}">
                                     <i class="bi bi-diagram-3-fill"></i>
-                                    {{ __(' จัดการฝ่าย') }}
+                                    {{ __(' จัดการฝ่าย/คณะวิชา') }}
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-nowrap {{ request()->routeIs('departments.*') ? 'active' : '' }}"
                                     href="{{ url('departments') }}">
                                     <i class="bi bi-diagram-3"></i>
-                                    {{ __(' จัดการหน่วยงาน/คณะ') }}
+                                    {{ __(' จัดการหน่วยงาน') }}
                                 </a>
                             </li>
                             <li class="nav-item">
