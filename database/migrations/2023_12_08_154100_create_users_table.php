@@ -23,7 +23,6 @@ return new class extends Migration
             $table->string('password');
             $table->string('department');
             $table->integer('dep_id')->nullable();
-            $table->integer('div_id')->nullable();
             $table->integer('role')->default(0);
             $table->rememberToken();
             $table->timestamps();
