@@ -22,8 +22,8 @@
 @section('content')
 
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-5">
+        <div class="row justify-content-end">
+            <div class="col-md-7">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/home">Home</a></li>
@@ -36,8 +36,8 @@
                     New Faculty') }}</a>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
+        <div class="row justify-content-end">
+            <div class="col-md-10">
 
                 <div class="card">
                     <div class="card-header">{{ __('All Faculties') }}</div>
