@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Department;
+use App\Models\Division;
 use Illuminate\Http\Request;
 
 class DepartmentController extends Controller
@@ -22,7 +23,8 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        return view('departments.create');
+        $divisions = Division::orderBy('div_name')->pluck('div_name', 'div_id');
+        return view('departments.create', compact('divisions'));
     }
 
     /**
@@ -54,7 +56,8 @@ class DepartmentController extends Controller
      */
     public function edit(Department $department)
     {
-        return view('departments.edit', compact('department'));
+        $divisions = Division::orderBy('div_name')->pluck('div_name', 'div_id');
+        return view('departments.edit', compact('department', 'divisions'));
     }
 
     /**

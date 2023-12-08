@@ -33,17 +33,17 @@
                                 <table class="table table-bordered">
                                     <tr>
                                         <th scope="col" class="text-center text-nowrap"
-                                            style="background-color: #f3f3f3">ชื่อ - สกุล :</th>
+                                            style="background-color: #f3f3f3">{{ __('ชื่อ - สกุล :') }}</th>
                                         <td>{{ Auth::user()->fullname }}</td>
                                     </tr>
                                     <tr>
                                         <th scope="col" class="text-center text-nowrap"
-                                            style="background-color: #f3f3f3">ตำแหน่งงานปัจจุบัน :</th>
+                                            style="background-color: #f3f3f3">{{ __('ตำแหน่งงานปัจจุบัน :') }}</th>
                                         <td>{{ Auth::user()->position }}</td>
                                     </tr>
                                     <tr>
                                         <th scope="col" class="text-center text-nowrap"
-                                            style="background-color: #f3f3f3">หน่วยงาน :</th>
+                                            style="background-color: #f3f3f3">{{ __('หน่วยงาน :') }}</th>
                                         <td>
                                             @php
                                                 $department = trim(Auth::user()->department);
@@ -51,15 +51,21 @@
                                                 $department = substr($department, $left_pos, strlen($department));
                                                 $department = substr($department, 0, strlen($department) - 1);
                                                 $department = trim($department);
+                                                // $user = App\Models\User::Where('id', Auth::user()->id)->get();
+                                                $user_faculty = App\Models\User_Faculty::Where('user_id', Auth::user()->id)->get();
+                                                // echo $user_faculty[0]['fac_id'];
+                                                $faculty = App\Models\Faculty::Where('fac_id', $user_faculty[0]['fac_id'])->get();
                                             @endphp
-                                            {{ $department . (is_null(Auth::user()->unit_id) ? "" : " / " . App\Models\Unit::findOrFail(Auth::user()->unit_id)->unit_name) }}
+                                            {{-- {{ dd($user) }} --}}
+                                            {{-- {{ $department . (is_null(Auth::user()->unit_id) ? "" : " / " . App\Models\Unit::findOrFail(Auth::user()->unit_id)->unit_name) }} --}}
+                                            {{ $department . (is_null($faculty[0]['fac_name']) ? "" : " || " . $faculty[0]['fac_name']) }}
                                         </td>
                                     </tr>
                                     <tr>
                                         <th scope="col" class="text-center text-nowrap"
                                             style="background-color: #f3f3f3">ชื่อผู้บังคับบัญชาโดยตรง :</th>
                                         <td>
-                                            {{ is_null(Auth::user()->unit_id) ? "" : App\Models\Unit::findOrFail(Auth::user()->unit_id)->user_name['fullname'] }}
+                                            {{-- {{ is_null(Auth::user()->unit_id) ? "" : App\Models\Unit::findOrFail(Auth::user()->unit_id)->user_name['fullname'] }} --}}
                                         </td>
                                     </tr>
                                 </table>

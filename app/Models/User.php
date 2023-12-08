@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 
 class User extends Authenticatable
 {
@@ -27,11 +29,21 @@ class User extends Authenticatable
         'password',
         'department',
         'role',
-        'unit_id',
     ];
 
-    public function unit_name() {
-        return $this->hasOne('App\Models\Unit', 'unit_id', 'unit_id');
+    public function user_faculty(): HasOne {
+        return $this->hasOne(User_Faculty::class, 'user_id', 'id');
+    }
+
+    public function user_fac(): HasOneThrough {
+        return $this->hasOneThrough(
+            Faculty::class,
+            User_Faculty::class,
+            'user_id',
+            'fac_id',
+            'id',
+            'fac_id'
+        );
     }
 
     /**

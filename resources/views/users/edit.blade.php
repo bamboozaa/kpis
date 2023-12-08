@@ -28,10 +28,12 @@
                             @csrf
                             @method('PUT')
 
+                            {!! Form::hidden('user_id', old('name', $user->id)) !!}
+
                             <div class="row mb-3">
                                 <label for="fullname" class="col-sm-3 col-form-label">{{ __('ชื่อ สกุล :') }}</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="fullname" value="{{ $user->fullname }}"
+                                    <input type="text" class="form-control" name="fullname" value="{{ old('name', $user->fullname) }}"
                                         disabled />
                                 </div>
                             </div>
@@ -41,18 +43,18 @@
                                     class="col-sm-3 col-form-label">{{ __('ตำแหน่งงานปัจจุบัน :') }}</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" name="position"
-                                        value="{{ $user->position }}">
+                                        value="{{ old('name', $user->position) }}">
                                 </div>
                             </div>
 
                             @php
-                                $department = trim($user->department);
+                                $department = trim(old('name', $user->department));
                                 $left_pos = strripos($department, '(') + 1;
                                 $department = substr($department, $left_pos, strlen($department));
                                 $department = substr($department, 0, strlen($department) - 1);
                                 $department = trim($department);
-                                $departments = App\Models\Department::where('dep_name', $department)->get();
-                                $faculty = App\Models\Faculty::where('dep_id', '=', $departments[0]['dep_id'])->get();
+                                // $departments = App\Models\Department::where('dep_name', $department)->get();
+                                // $faculty = App\Models\Faculty::where('dep_id', '=', $departments[0]['dep_id'])->get();
                             @endphp
 
                             <div class="row mb-3">
@@ -65,10 +67,14 @@
                             <div class="row my-3">
                                 <label for="faculties" class="col-sm-3 col-form-label">{{ __('แผนก :') }}</label>
                                 <div class="col-auto">
-                                    {!! Form::select('fac_id', $faculties, $faculty[0]['fac_id'], [
+                                    {!! Form::select('fac_id', $faculties, isset($user->user_faculty->user_id) ? $user->user_faculty->faculty->fac_id : NULL, [
                                         'class' => 'form-select',
                                         'placeholder' => 'Please Select ...',
                                     ]) !!}
+                                    {{-- {!! Form::select('fac_id', $faculties, isset($faculty[0]['fac_id']) ? $faculty[0]['fac_id'] : NULL, [
+                                        'class' => 'form-select',
+                                        'placeholder' => 'Please Select ...',
+                                    ]) !!} --}}
                                 </div>
                             </div>
 

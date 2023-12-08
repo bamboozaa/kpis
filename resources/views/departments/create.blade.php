@@ -26,14 +26,30 @@
 
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
+                <div class="card bg-white">
                     <div class="card-header">{{ __('Create Department') }}</div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('departments.store') }}">
                             @csrf
-                            <div class="form-group">
-                                <label for="name">Department Name:</label>
-                                <input type="text" name="dep_name" id="dep_name" class="form-control my-3" required>
+                            <div class="row mb-3">
+                                <label for="dep_name" class="col-sm-3 col-form-label">{{ __('Department Name :') }}</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="dep_name" class="form-control" required />
+                                    {{-- @error('dep_name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror --}}
+                                </div>
+                            </div>
+                            <div class="mb-3 row ">
+                                <label for="division" class="col-sm-3 col-form-label">{{ __('รายชื่อฝ่าย :') }}</label>
+                                <div class="col-auto">
+                                    {!! Form::select('div_id', $divisions, null, [
+                                        'class' => 'form-select',
+                                        'placeholder' => 'Please Select ...',
+                                    ]) !!}
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Create Department</button>
                         </form>

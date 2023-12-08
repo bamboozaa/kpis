@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Unit;
 use App\Models\Faculty;
+use App\Models\User_Faculty;
 
 class UserController extends Controller
 {
@@ -58,10 +59,10 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(User $user)
     {
         // Show the form to edit a user
-        $user = User::findOrFail($id);
+        // $user = User::findOrFail($id);
         $faculties = Faculty::orderBy('fac_name')->pluck('fac_name', 'fac_id');
         return view('users.edit', compact('user', 'faculties'));
     }
@@ -69,10 +70,10 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, User $user)
     {
         // Update a user
-        $user = User::findOrFail($id);
+        // $user = User::findOrFail($id);
 
         $request->validate([
             // 'name' => 'required|string|max:255',
@@ -82,8 +83,13 @@ class UserController extends Controller
 
         $user->update([
             'position' => $request->input('position'),
-            'unit_id' => $request->input('unit_id'),
+            // 'unit_id' => $request->input('unit_id'),
             // Update other fields as needed
+        ]);
+
+        User_Faculty::updateOrCreate([
+            'user_id' => $request->input('user_id'),
+            'fac_id' => $request->input('fac_id'),
         ]);
 
         session()->flash('success', 'User update successfully.');

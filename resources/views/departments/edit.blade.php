@@ -26,28 +26,46 @@
 
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
+                <div class="card bg-white">
                     <div class="card-header">{{ __('Edit Department') }}</div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('departments.update', $department->dep_id) }}">
                             @csrf
                             @method('PATCH')
-                            <div class="form-group">
-                                <label for="dep_id">Department ID:</label>
-                                <input type="text" name="dep_id" id="dep_id" class="form-control my-3"
-                                    value="{{ old('name', $department->dep_id) }}" required>
+                            {{-- <div class="row mb-3">
+                                <label for="dep_id" class="col-sm-3 col-form-label">{{ __('Department ID :') }}</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="dep_id" class="form-control"
+                                    value="{{ old('name', $department->dep_id) }}">
+                                </div>
+                            </div> --}}
+                            <div class="row mb-3">
+                                <label for="dep_name" class="col-sm-3 col-form-label">{{ __('Department Name :') }}</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="dep_name" class="form-control" value="{{ old('name', $department->dep_name) }}" />
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="name">Department Name:</label>
-                                <input type="text" name="dep_name" id="dep_name" class="form-control my-3"
-                                    value="{{ old('name', $department->dep_name) }}" required>
+                            <div class="row mb-3">
+                                <label for="cost_center" class="col-sm-3 col-form-label">{{ __('Cost Center :') }}</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="cost_center" class="form-control" value="{{ old('name', $department->cost_center) }}" />
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="name">Cost Center:</label>
-                                <input type="text" name="cost_center" id="cost_center" class="form-control my-3"
-                                    value="{{ old('name', $department->cost_center) }}" />
+
+                            <div class="mb-3 row ">
+                                <label for="division" class="col-sm-3 col-form-label">{{ __('รายชื่อฝ่าย :') }}</label>
+                                <div class="col-auto">
+                                    {!! Form::select('div_id', $divisions, is_null(old('name', $department->div_id)) ? NULL : old('name', $department->div_id), [
+                                        'class' => 'form-select',
+                                        'placeholder' => 'Please Select ...',
+                                    ]) !!}
+                                </div>
                             </div>
-                            <button type="submit" class="btn btn-success">Update Department</button>
+                            <div class="row mb-3 justify-content-center">
+                                <div class="col-sm-3">
+                                    <button type="submit" class="btn btn-success"><i class="bi bi-arrow-up-circle fs-sm"></i>{{ __(' Update Department') }}</button>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
