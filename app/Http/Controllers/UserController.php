@@ -90,10 +90,12 @@ class UserController extends Controller
             // Update other fields as needed
         ]);
 
-        User_Faculty::updateOrCreate([
-            'user_id' => $request->input('user_id'),
-            'fac_id' => $request->input('fac_id'),
-        ]);
+        if (isset($request->input['fac_id'])) {
+            User_Faculty::updateOrCreate([
+                'user_id' => $request->input('user_id'),
+                'fac_id' => $request->input('fac_id'),
+            ]);
+        }
 
         session()->flash('success', 'User update successfully.');
 
