@@ -28,6 +28,8 @@ class User extends Authenticatable
         'email',
         'password',
         'department',
+        'dep_id',
+        'div_id',
         'role',
     ];
 

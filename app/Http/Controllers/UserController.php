@@ -75,6 +75,8 @@ class UserController extends Controller
         // Update a user
         // $user = User::findOrFail($id);
 
+        // dd($request);
+
         $request->validate([
             // 'name' => 'required|string|max:255',
             // 'email' => 'required|email|unique:users,email,' . $user->id,
