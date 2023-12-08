@@ -53,15 +53,15 @@
                                 $department = substr($department, $left_pos, strlen($department));
                                 $department = substr($department, 0, strlen($department) - 1);
                                 $department = trim($department);
-                                // $departments = App\Models\Department::where('dep_name', $department)->get();
+                                $dep_id = App\Models\Department::where('dep_name', $department)->get();
                                 // $faculty = App\Models\Faculty::where('dep_id', '=', $departments[0]['dep_id'])->get();
                             @endphp
 
                             <div class="row mb-3">
                                 <label for="department" class="col-sm-3 col-form-label">{{ __('หน่วยงาน :') }}</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="department"
-                                        value="{{ $department }}" disabled />
+                                    <input type="text" class="form-control" name="department" value="{{ $department }}" disabled />
+                                    {!! Form::hidden('dep_id', $dep_id[0]['dep_id']) !!}
                                 </div>
                             </div>
                             <div class="row my-3">

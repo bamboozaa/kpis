@@ -83,6 +83,7 @@ class UserController extends Controller
 
         $user->update([
             'position' => $request->input('position'),
+            'dep_id' => $request->input('dep_id'),
             // 'unit_id' => $request->input('unit_id'),
             // Update other fields as needed
         ]);
