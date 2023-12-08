@@ -40,7 +40,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
 
-                <div class="card bg-white">
+                <div class="card">
                     <div class="card-header"><i class="bi bi-border-all fs-6"></i>{{ __(' All Departments') }}</div>
 
                     <div class="card-body">
