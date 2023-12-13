@@ -1,13 +1,23 @@
-@extends('layouts.app')
+@extends('layouts.app-login')
+
+@section('importcss')
+    @parent
+    {{ Html::style('css/login.css') }}
+@stop
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card bg-white">
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <img src="{{ URL::asset('/images/logo-utcc60th.png') }}" class="img-fluid">
+                        </div>
+                    </div>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -54,7 +64,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-0">
+                        {{-- <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
@@ -66,7 +76,7 @@
                                     </a>
                                 @endif
                             </div>
-                        </div>
+                        </div> --}}
                     </form>
                 </div>
             </div>
