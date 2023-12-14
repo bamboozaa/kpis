@@ -17,14 +17,14 @@
             <div class="col-md-5">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{ url('faculties') }}">Faculties</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Edit Faculty</li>
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __('Home') }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('faculties') }}">{{ __('Faculties') }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ __('Edit Faculty') }}</li>
                     </ol>
                 </nav>
             </div>
             <div class="col-md-3" style="text-align: right!important;">
-                <a href="{{ url('faculties') }}" class="btn btn-primary mb-2"><i class="bi bi-back"></i> Back</a>
+                <a href="{{ url('faculties') }}" class="btn btn-primary mb-2"><i class="bi bi-back"></i>{{ __(' Back') }}</a>
             </div>
         </div>
 
@@ -55,7 +55,7 @@
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-success">Update</button>
+                            <button type="submit" class="btn btn-success">{{ __(' Update') }}</button>
                         </form>
                     </div>
                 </div>
