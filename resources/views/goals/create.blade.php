@@ -63,7 +63,7 @@
                                 <label for="goal"
                                     class="col-sm-3 col-form-label text-end">{{ __('บันทึกหน้าที่หลัก / กิจกรรมหลัก :') }}</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="dep_name" class="form-control" required />
+                                    <input type="text" name="goal" class="form-control" required />
                                     {{-- @error('dep_name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -94,6 +94,21 @@
             {{-- </div> --}}
         </div>
 
+        {{-- @php
+            $goals = App\Models\Goal::whereIn('user_id', Auth::user()->id)->get();
+            // $goals = $goals[0];
+            // count($goals);
+        @endphp --}}
+
+        {{-- {{ dd($goals) }} --}}
+        {{-- {{ count($goals) }} --}}
+
+        @php
+            // print_r($_GET)
+            // foreach ($_GET as $key => $value) {
+            //     {$key} => {$value};
+            // }
+        @endphp
         <div class="row justify-content-center my-4">
             <div class="card">
                 <div class="card-header"><i class="bi bi-bullseye fs-4"></i><span class="ms-2">{{ __('หน้าที่รับผิดชอบหลัก (Key Responsibilities)') }}</span></div>

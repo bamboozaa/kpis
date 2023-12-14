@@ -12,7 +12,8 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('goals.create', Auth::user()->id) }}" class="nav-link px-0 align-middle text-white {{ request()->routeIs('goals.*') ? 'active' : '' }}">
+                <a href="{{ route('goals.create') }}" class="nav-link px-0 align-middle text-white {{ request()->routeIs('goals.*') ? 'active' : '' }}">
+                    {{-- <a href="{{ route('goals.create', ['id' => Auth::user()->id]) }}" class="nav-link px-0 align-middle text-white {{ request()->routeIs('goals.*') ? 'active' : '' }}"> --}}
                     <i class="bi bi-bullseye fs-4"></i><span class="ms-2 d-none d-sm-inline">{{ __('[ บันทึกหน้าที่หลัก ]') }}</span>
                 </a>
             </li>

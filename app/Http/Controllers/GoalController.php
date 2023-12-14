@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Goal;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GoalController extends Controller
 {
@@ -18,10 +19,16 @@ class GoalController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Goal $goal)
+    public function create()
     {
-        $goals = Goal::all();
+        // foreach ($_GET as $key => $value) {
+        //     {$key} => {$value}
+        // }
+        // $goals = Goal::where('user_id', $id)->get();
+        $goals = Goal::where('user_id', Auth::user()->id)->get();
+        // $goals = $goals[0];
         return view('goals.create', compact('goals'));
+        // return view('goals.create');
     }
 
     /**
@@ -29,7 +36,20 @@ class GoalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'goal' => 'required|unique:goals',
+        ]);
+
+        Goal::create($request->all());
+
+        // Goal::create([
+        //     'user_id' => $request->input('user_id'),
+        //     'goal' => $request->input('goal'),
+        // ]);
+
+        session()->flash('success', 'Goal created successfully.');
+
+        return redirect()->route('goals.create');
     }
 
     /**
@@ -45,7 +65,7 @@ class GoalController extends Controller
      */
     public function edit(Goal $goal)
     {
-        //
+        return view('goals.edit', compact('goal'));
     }
 
     /**
@@ -53,7 +73,11 @@ class GoalController extends Controller
      */
     public function update(Request $request, Goal $goal)
     {
-        //
+        $goal->update($request->all());
+
+        session()->flash('success', 'Goal updated successfully.');
+
+        return redirect()->route('goals.create');
     }
 
     /**
@@ -61,6 +85,10 @@ class GoalController extends Controller
      */
     public function destroy(Goal $goal)
     {
-        //
+        $goal->delete();
+
+        session()->flash('success', 'Goal deleted successfully.');
+
+        return redirect()->route('goals.create');
     }
 }
