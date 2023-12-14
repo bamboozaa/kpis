@@ -66,13 +66,16 @@
                                                 <td>{{ $department->dep_name }}</td>
                                                 <td>{{ isset($department->division['div_name']) ? $department->division['div_name'] : "" }}</td>
                                                 <td class="text-center text-nowrap">
-                                                    <a href="{{ route('departments.edit', $department->dep_id) }}"
-                                                        class="btn btn-warning btn-sm">{{ __('Edit') }}</a>
+                                                    <a href="{{ route('departments.edit', $department->dep_id) }}" class="btn btn-warning btn-sm">
+                                                        <i class="bi bi-pencil-square fs-sm"></i>
+                                                        <span class="ms-1">{{ __('Edit') }}</span>
+                                                    </a>
                                                     <form action="{{ route('departments.destroy', $department->dep_id) }}" method="POST" style="display: inline;">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this department?')">
-                                                        {{ __('Delete') }}
+                                                        <i class="bi bi-trash fs-sm"></i>
+                                                        <span class="ms-1">{{ __('Delete') }}</span>
                                                     </button>
                                                 </form>
                                                 </td>
