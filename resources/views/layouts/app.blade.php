@@ -85,21 +85,21 @@
                                         <li class="nav-item">
                                             <a class="nav-link text-nowrap {{ request()->routeIs('divisions.*') ? 'active' : '' }}" href="{{ url('divisions') }}">
                                                 <i class="bi bi-diagram-3-fill"></i>
-                                                {{ __(' จัดการฝ่าย/คณะวิชา') }}
+                                                {{ __(' จัดการฝ่าย / คณะวิชา') }}
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link text-nowrap {{ request()->routeIs('departments.*') ? 'active' : '' }}"
                                                 href="{{ url('departments') }}">
                                                 <i class="bi bi-diagram-3"></i>
-                                                {{ __(' จัดการหน่วยงาน') }}
+                                                {{ __(' จัดการหน่วยงาน / คณะ') }}
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link text-nowrap {{ request()->routeIs('faculties.*') ? 'active' : '' }}"
                                                 href="{{ url('faculties') }}">
                                                 <i class="bi bi-diagram-2"></i>
-                                                {{ __(' จัดการแผนก/สาขาวิชา') }}
+                                                {{ __(' จัดการแผนก / สาขาวิชา') }}
                                             </a>
                                         </li>
                                         <li class="nav-item dropdown">

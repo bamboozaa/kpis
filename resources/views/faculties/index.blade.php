@@ -36,49 +36,51 @@
                 </nav>
             </div>
             <div class="col-md-3" style="text-align: right!important;">
-                <a href="{{ route('faculties.create') }}" class="btn btn-primary mb-2"><i class="fs-sm bi bi-plus-square"></i>{{ __(' Create
-                    New Faculty') }}</a>
+                <a href="{{ route('faculties.create') }}" class="btn btn-primary mb-2"><i
+                        class="fs-sm bi bi-plus-square"></i>{{ __(' Create
+                                            New Faculty') }}</a>
             </div>
         </div>
         <div class="row justify-content-end">
 
 
-                <div class="card">
-                    <div class="card-header">{{ __('All Faculties') }}</div>
-                    <div class="card-body">
-                        <div class="table-responsive mt-3">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="text-center text-nowrap">No.</th>
-                                        <th scope="col" class="text-nowrap">ชื่อแผนก</th>
-                                        <th scope="col" class="text-nowrap">ชื่อหน่วยงาน</th>
-                                        <th scope="col" class="text-center">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @if (count($faculties) > 0)
-                                        @foreach ($faculties as $faculty)
-                                            <tr>
-                                                <td class="text-center">{{ $faculty->fac_id }}</td>
-                                                <td>{{ $faculty->fac_name }}</td>
-                                                <td>{{ $faculty->department['dep_name'] }}</td>
-                                                <td class="text-center text-nowrap">
-                                                    <a href="{{ route('faculties.edit', $faculty->fac_id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    @else
+            <div class="card">
+                <div class="card-header">{{ __('All Faculties') }}</div>
+                <div class="card-body">
+                    <div class="table-responsive mt-3">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="text-center text-nowrap">No.</th>
+                                    <th scope="col" class="text-nowrap">ชื่อแผนก</th>
+                                    <th scope="col" class="text-nowrap">ชื่อหน่วยงาน</th>
+                                    <th scope="col" class="text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (count($faculties) > 0)
+                                    @foreach ($faculties as $faculty)
                                         <tr>
-                                            <td colspan="4">{{ __('ไม่พบข้อมูลที่ท่านต้องการค้นหาในขณะนี้') }}</td>
+                                            <td class="text-center">{{ $faculty->fac_id }}</td>
+                                            <td>{{ $faculty->fac_name }}</td>
+                                            <td>{{ $faculty->department['dep_name'] }}</td>
+                                            <td class="text-center text-nowrap">
+                                                <a href="{{ route('faculties.edit', $faculty->fac_id) }}"
+                                                    class="btn btn-warning btn-sm">Edit</a>
+                                            </td>
                                         </tr>
-                                    @endif
+                                    @endforeach
+                                @else
+                                    <tr>
+                                        <td colspan="4">{{ __('ไม่พบข้อมูลที่ท่านต้องการค้นหาในขณะนี้') }}</td>
+                                    </tr>
+                                @endif
 
-                                </tbody>
-                            </table>
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 @endsection

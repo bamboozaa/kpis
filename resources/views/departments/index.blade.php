@@ -37,7 +37,7 @@
             </div>
             <div class="col-md-3" style="text-align: right!important;">
                 <a href="{{ route('departments.create') }}" class="btn btn-primary mb-2">
-                    <i class="bi bi-plus-square"></i>{{ __(' Create New Department') }}
+                    <i class="bi bi-plus-square"></i><span class="ms-2">{{ __('Create New Department') }}</span>
                 </a>
             </div>
         </div>
@@ -53,7 +53,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col" class="text-center text-nowrap">{{ __('Cost Center') }}</th>
-                                        <th scope="col" class="text-nowrap">{{ __('ชื่อหน่วยงาน') }}</th>
+                                        <th scope="col" class="text-nowrap">{{ __('ชื่อหน่วยงาน / คณะ') }}</th>
                                         <th scope="col" class="text-nowrap">{{ __('ชื่อฝ่าย') }}</th>
                                         <th scope="col" class="text-center">{{ __('Actions') }}</th>
                                     </tr>
