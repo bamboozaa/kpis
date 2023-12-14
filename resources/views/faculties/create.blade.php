@@ -6,6 +6,10 @@
     {{ Html::style('css/custom.css') }}
 @stop
 
+@section('sidemenu')
+    @include('layouts.sidemenu')
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">

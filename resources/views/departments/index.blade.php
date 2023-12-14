@@ -19,11 +19,15 @@
     </script>
 @stop
 
+@section('sidemenu')
+    @include('layouts.sidemenu')
+@endsection
+
 @section('content')
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row justify-content-end">
-            <div class="col-md-7">
+            <div class="col-md-9">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/home">{{ __('Home') }}</a></li>
@@ -38,7 +42,7 @@
             </div>
         </div>
         <div class="row justify-content-end">
-            <div class="col-md-10">
+
 
                 <div class="card">
                     <div class="card-header"><i class="bi bi-border-all fs-6"></i>{{ __(' All Departments') }}</div>
@@ -85,7 +89,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+
         </div>
     </div>
 @endsection
