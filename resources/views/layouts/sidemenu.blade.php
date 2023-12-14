@@ -8,7 +8,17 @@
             </li> --}}
             <li>
                 <a href="{{ route('home') }}" class="nav-link px-0 align-middle text-white {{ request()->routeIs('home') ? 'active' : '' }}">
-                    <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">{{ __('Dashboard') }}</span>
+                    <i class="fs-4 bi-speedometer2"></i><span class="ms-2 d-none d-sm-inline">{{ __('Dashboard') }}</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('goals.create', Auth::user()->id) }}" class="nav-link px-0 align-middle text-white {{ request()->routeIs('goals.*') ? 'active' : '' }}">
+                    <i class="bi bi-bullseye fs-4"></i><span class="ms-2 d-none d-sm-inline">{{ __('[ บันทึกหน้าที่หลัก ]') }}</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('indicators.create') }}" class="nav-link px-0 align-middle text-white {{ request()->routeIs('indicators.*') ? 'active' : '' }}">
+                    <i class="bi bi-app-indicator fs-4"></i><span class="ms-2 d-none d-sm-inline">{{ __('[ บันทึกตัวชี้วัด KPI ]') }}</span>
                 </a>
             </li>
             {{-- <li class="text-nowrap">

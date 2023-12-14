@@ -69,12 +69,15 @@
                                         // $user = App\Models\User::Where('id', Auth::user()->id)->get();
                                         $user_faculty = App\Models\User_Faculty::Where('user_id', Auth::user()->id)->get();
                                         // echo $user_faculty[0]['fac_id'];
-                                        // $faculty = App\Models\Faculty::Where('fac_id', $user_faculty[0]['fac_id'])->get();
+                                        if (count($user_faculty) > 0) {
+                                            $faculty = App\Models\Faculty::Where('fac_id', $user_faculty[0]['fac_id'])->get();
+                                            $faculty = $faculty[0]['fac_name'];
+                                        }
                                     @endphp
                                     {{-- {{ dd($user) }} --}}
                                     {{-- {{ $department . (is_null(Auth::user()->unit_id) ? "" : " / " . App\Models\Unit::findOrFail(Auth::user()->unit_id)->unit_name) }} --}}
-                                    {{-- {{ $department . (is_null($faculty[0]['fac_name']) ? "" : " - " . $faculty[0]['fac_name']) }} --}}
-                                    {{ $department }}
+                                    {{ $department . (is_null($faculty) ? "" : " - " . $faculty) }}
+                                    {{-- {{ $department }} --}}
                                 </td>
                             </tr>
                             <tr>
