@@ -47,17 +47,17 @@
                     <div class="table-responsive mt-3">
                         <table class="table table-bordered">
                             <tr>
-                                <th scope="col" class="text-center text-nowrap"
+                                <th scope="col" class="text-end text-nowrap"
                                     style="background-color: #f3f3f3">{{ __('ชื่อ - สกุล :') }}</th>
                                 <td>{{ Auth::user()->fullname }}</td>
                             </tr>
                             <tr>
-                                <th scope="col" class="text-center text-nowrap"
+                                <th scope="col" class="text-end text-nowrap"
                                     style="background-color: #f3f3f3">{{ __('ตำแหน่งงานปัจจุบัน :') }}</th>
                                 <td>{{ Auth::user()->position }}</td>
                             </tr>
                             <tr>
-                                <th scope="col" class="text-center text-nowrap"
+                                <th scope="col" class="text-end text-nowrap"
                                     style="background-color: #f3f3f3">{{ __('หน่วยงาน :') }}</th>
                                 <td>
                                     @php
@@ -73,12 +73,12 @@
                                     @endphp
                                     {{-- {{ dd($user) }} --}}
                                     {{-- {{ $department . (is_null(Auth::user()->unit_id) ? "" : " / " . App\Models\Unit::findOrFail(Auth::user()->unit_id)->unit_name) }} --}}
-                                    {{ $department . (is_null($faculty[0]['fac_name']) ? "" : " || " . $faculty[0]['fac_name']) }}
+                                    {{ $department . (is_null($faculty[0]['fac_name']) ? "" : " - " . $faculty[0]['fac_name']) }}
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="col" class="text-center text-nowrap"
-                                    style="background-color: #f3f3f3">ชื่อผู้บังคับบัญชาโดยตรง :</th>
+                                <th scope="col" class="text-end text-nowrap"
+                                    style="background-color: #f3f3f3">{{ __('ชื่อผู้บังคับบัญชาโดยตรง :') }}</th>
                                 <td>
                                     {{-- {{ is_null(Auth::user()->unit_id) ? "" : App\Models\Unit::findOrFail(Auth::user()->unit_id)->user_name['fullname'] }} --}}
                                 </td>
