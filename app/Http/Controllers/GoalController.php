@@ -13,7 +13,8 @@ class GoalController extends Controller
      */
     public function index()
     {
-        //
+        $goals = Goal::where('user_id', Auth::user()->id)->get();
+        return view('goals.index', compact('goals'));
     }
 
     /**

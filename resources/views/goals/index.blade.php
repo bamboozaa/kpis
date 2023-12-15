@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'บันทึกหน้าที่หลักในการทำงาน')
+@section('title', 'เป้าหมาย')
 
 @section('importcss')
     @parent
@@ -27,16 +27,21 @@
 
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __('Home') }}</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('goals') }}">{{ __('เป้าหมาย') }}</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ __('บันทึกหน้าที่หลัก') }}</li>
-                </ol>
-            </nav>
+            <div class="col-md-9">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __('Home') }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ __('เป้าหมาย') }}</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-md-3" style="text-align: right!important;">
+                <a href="{{ route('goals.create') }}" class="btn btn-primary mb-2">
+                    <i class="fs-sm bi bi-plus-square"></i><span class="ms-2">{{ __('สร้างเป้าหมายใหม่') }}</span></a>
+            </div>
         </div>
 
-        <div class="row justify-content-center">
+        {{-- <div class="row justify-content-center">
             <div class="card bg-white">
                 <div class="card-body">
                     <form method="POST" action="{{ route('goals.store') }}">
@@ -49,7 +54,6 @@
                                 {{ __('บันทึกหน้าที่หลัก / กิจกรรมหลัก :') }}
                             </label>
                             <div class="col-sm-9">
-                                {{-- <input type="text" name="goal" class="form-control" autofocus required /> --}}
                                 {!! Form::textarea('goal', null, ['class' => 'form-control', 'autofocus', 'required', 'rows' => '3']) !!}
                             </div>
                         </div>
@@ -65,21 +69,21 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
-        {{-- <div class="row justify-content-center my-4">
+        <div class="row justify-content-center my-4">
             <div class="card">
-                <div class="card-header">
+                {{-- <div class="card-header">
                     <i class="bi bi-bullseye fs-4" style="color: forestgreen"></i>
                     <span class="ms-2">{{ __('หน้าที่รับผิดชอบหลัก (Key Responsibilities)') }}</span>
-                </div>
+                </div> --}}
                 <div class="card-body bg-white">
                     <div class="table-responsive mt-3">
                         <table class="table table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th scope="col" class="text-center text-nowrap">{{ __('No.') }}</th>
-                                    <th scope="col" class="text-nowrap">{{ __('หน้าที่หลัก / กิจกรรมหลัก') }}</th>
+                                    <th scope="col" class="text-nowrap">{{ __('เป้าหมาย') }}</th>
                                     <th scope="col" class="text-center">{{ __('Actions') }}</th>
                                 </tr>
                             </thead>
@@ -119,7 +123,7 @@
                     </div>
                 </div>
             </div>
-        </div> --}}
+        </div>
     </div>
 @endsection
 

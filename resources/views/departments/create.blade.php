@@ -66,7 +66,8 @@
                             <div class="row justify-content-center">
                                 <div class="col-auto">
                                     <button type="submit" class="btn btn-primary"><i
-                                            class="bi bi-floppy2-fill fs-sm"></i><span class="ms-2">{{ __(' Create Department') }}</span></button>
+                                            class="bi bi-floppy2-fill fs-sm"></i><span
+                                            class="ms-2">{{ __(' Create Department') }}</span></button>
                                 </div>
                             </div>
                         </form>

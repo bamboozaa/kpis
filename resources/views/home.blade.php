@@ -76,7 +76,7 @@
                                     @endphp
                                     {{-- {{ dd($user) }} --}}
                                     {{-- {{ $department . (is_null(Auth::user()->unit_id) ? "" : " / " . App\Models\Unit::findOrFail(Auth::user()->unit_id)->unit_name) }} --}}
-                                    {{ $department . (is_null($faculty) ? "" : " - " . $faculty) }}
+                                    {{ $department . (!isset($faculty) ? "" : " - " . $faculty) }}
                                     {{-- {{ $department }} --}}
                                 </td>
                             </tr>
