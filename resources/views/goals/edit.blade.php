@@ -12,13 +12,12 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-md-5">
+            <div class="col-md-7">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __('Home') }}</a></li>
-                        {{-- <li class="breadcrumb-item"><a href="{{ url('departments') }}">Departments</a></li> --}}
                         <li class="breadcrumb-item active" aria-current="page">{{ __('Edit Goal') }}</li>
                     </ol>
                 </nav>
@@ -29,7 +28,7 @@
         </div>
 
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <div class="card bg-white">
                     <div class="card-body">
                         <form method="POST" action="{{ route('goals.update', $goal->goa_id) }}">
@@ -39,7 +38,7 @@
                             <div class="row mb-3">
                                 <label for="goal" class="col-sm-3 col-form-label text-nowrap">{{ __('บันทึกหน้าที่หลัก / กิจกรรมหลัก :') }}</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="goal" class="form-control" value="{{ old('name', $goal->goal) }}" />
+                                    <textarea rows="4" cols="50" name="goal" class="form-control">{{ old('name', $goal->goal) }}</textarea>
                                 </div>
                             </div>
 

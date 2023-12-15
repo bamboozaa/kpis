@@ -14,12 +14,12 @@
             <li>
                 <a href="{{ route('goals.create') }}" class="nav-link px-0 align-middle text-white {{ request()->routeIs('goals.*') ? 'active' : '' }}">
                     {{-- <a href="{{ route('goals.create', ['id' => Auth::user()->id]) }}" class="nav-link px-0 align-middle text-white {{ request()->routeIs('goals.*') ? 'active' : '' }}"> --}}
-                    <i class="bi bi-bullseye fs-4"></i><span class="ms-2 d-none d-sm-inline">{{ __('[ บันทึกหน้าที่หลัก ]') }}</span>
+                    <i class="bi bi-bullseye fs-4" style="color: forestgreen"></i><span class="ms-2 d-none d-sm-inline">{{ __('[ บันทึกหน้าที่หลัก ]') }}</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('indicators.create') }}" class="nav-link px-0 align-middle text-white {{ request()->routeIs('indicators.*') ? 'active' : '' }}">
-                    <i class="bi bi-app-indicator fs-4"></i><span class="ms-2 d-none d-sm-inline">{{ __('[ บันทึกตัวชี้วัด KPI ]') }}</span>
+                    <i class="bi bi-app-indicator fs-4" style="color: crimson"></i><span class="ms-2 d-none d-sm-inline">{{ __('[ บันทึกตัวชี้วัด KPI ]') }}</span>
                 </a>
             </li>
             {{-- <li class="text-nowrap">

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Indicator;
+use App\Models\Goal;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class IndicatorController extends Controller
 {
@@ -20,7 +22,9 @@ class IndicatorController extends Controller
      */
     public function create()
     {
-        //
+        $indicators = Indicator::where('user_id', Auth::user()->id)->get();
+        $goals = Goal::where('user_id', Auth::user()->id)->get()->pluck('goal', 'goa_id');
+        return view('indicators.create', compact('goals', 'indicators'));
     }
 
     /**
@@ -28,7 +32,18 @@ class IndicatorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'indicator' => 'required',
+            'weight' => 'required',
+            'goa_id' => 'required',
+        ]);
+
+        Indicator::create($request->all());
+
+        session()->flash('success', 'Indicator created successfully.');
+
+        return redirect()->route('indicators.create');
     }
 
     /**
