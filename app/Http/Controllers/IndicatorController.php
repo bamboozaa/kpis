@@ -39,11 +39,13 @@ class IndicatorController extends Controller
             'goa_id' => 'required',
         ]);
 
+        $goa_id = $request->input('goa_id');
+
         Indicator::create($request->all());
 
         session()->flash('success', 'Indicator created successfully.');
 
-        return redirect()->route('indicators.create');
+        return redirect()->route('goals.show', $goa_id);
     }
 
     /**
@@ -75,6 +77,10 @@ class IndicatorController extends Controller
      */
     public function destroy(Indicator $indicator)
     {
-        //
+        $indicator->delete();
+
+        session()->flash('success', 'Indicator deleted successfully.');
+
+        return redirect()->back();
     }
 }

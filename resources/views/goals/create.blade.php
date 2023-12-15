@@ -27,13 +27,19 @@
 
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __('Home') }}</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('goals') }}">{{ __('เป้าหมาย') }}</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ __('บันทึกหน้าที่หลัก') }}</li>
-                </ol>
-            </nav>
+            <div class="col-md-9">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __('Home') }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('goals') }}">{{ __('เป้าหมาย') }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ __('บันทึกหน้าที่หลัก') }}</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-md-3" style="text-align: right!important;">
+                <a href="{{ url('goals') }}" class="btn btn-primary mb-2"><i class="bi bi-back"></i><span
+                        class="ms-2">{{ __('Back') }}</span></a>
+            </div>
         </div>
 
         <div class="row justify-content-center">

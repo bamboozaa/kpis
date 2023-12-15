@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Goal;
+use App\Models\Indicator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,7 +51,7 @@ class GoalController extends Controller
 
         session()->flash('success', 'Goal created successfully.');
 
-        return redirect()->route('goals.create');
+        return redirect()->route('goals.index');
     }
 
     /**
@@ -58,7 +59,16 @@ class GoalController extends Controller
      */
     public function show(Goal $goal)
     {
-        //
+        $goals = Goal::where('user_id', Auth::user()->id)->get();
+        $indicators = Indicator::where([
+            ['user_id', Auth::user()->id],
+            ['goa_id', $goal->goa_id]
+        ])->get();
+        // $indicators = Indicator::where([
+        //     'user_id', Auth::user()->id,
+        //     // ['goa_id', $goal->id],
+        // ])->first();
+        return view('goals.show', compact('goal', 'goals', 'indicators'));
     }
 
     /**
@@ -78,7 +88,7 @@ class GoalController extends Controller
 
         session()->flash('success', 'Goal updated successfully.');
 
-        return redirect()->route('goals.create');
+        return redirect()->route('goals.index');
     }
 
     /**
@@ -90,6 +100,6 @@ class GoalController extends Controller
 
         session()->flash('success', 'Goal deleted successfully.');
 
-        return redirect()->route('goals.create');
+        return redirect()->route('goals.index');
     }
 }

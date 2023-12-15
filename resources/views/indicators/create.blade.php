@@ -35,6 +35,12 @@
             </nav>
         </div>
 
+        @php
+            foreach ($_GET as $key => $val) {
+                ${$key} = $val;
+            }
+        @endphp
+
         <div class="row justify-content-center">
             <div class="card bg-white">
                 <div class="card-body">
@@ -63,7 +69,8 @@
                         </div>
 
                         <div class="mb-3 row ">
-                            <label for="goals" class="col-sm-2 col-form-label text-end text-nowrap">{{ __('เป้าหมาย :') }}</label>
+                            <label for="goals"
+                                class="col-sm-2 col-form-label text-end text-nowrap">{{ __('เป้าหมาย :') }}</label>
                             <div class="col-sm-auto">
                                 {!! Form::select('goa_id', $goals, null, [
                                     'class' => 'form-select',
@@ -85,7 +92,7 @@
             </div>
         </div>
 
-        <div class="row justify-content-center my-4">
+        {{-- <div class="row justify-content-center my-4">
             <div class="card">
                 <div class="card-header">
                     <i class="bi bi-app-indicator fs-4" style="color: red"></i>
@@ -141,7 +148,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 @endsection
 
