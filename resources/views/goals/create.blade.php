@@ -63,23 +63,11 @@
                                 <label for="goal"
                                     class="col-sm-3 col-form-label text-end">{{ __('บันทึกหน้าที่หลัก / กิจกรรมหลัก :') }}</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="goal" class="form-control" required />
-                                    {{-- @error('dep_name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror --}}
+                                    {{-- <input type="text" name="goal" class="form-control" autofocus required /> --}}
+                                    {!! Form::textarea('goal', null, ['class' => 'form-control', 'autofocus', 'required', 'rows' => '2']) !!}
                                 </div>
                             </div>
-                            {{-- <div class="mb-3 row ">
-                                <label for="division" class="col-sm-3 col-form-label">{{ __('รายชื่อฝ่าย :') }}</label>
-                                <div class="col-sm-auto">
-                                    {!! Form::select('div_id', $divisions, null, [
-                                        'class' => 'form-select',
-                                        'placeholder' => 'Please Select ...',
-                                    ]) !!}
-                                </div>
-                            </div> --}}
+
                             <div class="row justify-content-center">
                                 <div class="col-auto">
                                     <button type="submit" class="btn btn-primary">
