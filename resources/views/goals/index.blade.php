@@ -41,41 +41,11 @@
             </div>
         </div>
 
-        {{-- <div class="row justify-content-center">
+        <div class="row justify-content-center my-4">
             <div class="card bg-white">
                 <div class="card-body">
-                    <form method="POST" action="{{ route('goals.store') }}">
-                        @csrf
-
-                        {!! Form::hidden('user_id', Auth::user()->id) !!}
-
-                        <div class="row mb-3">
-                            <label for="goal" class="col-sm-2 col-form-label text-end text-nowrap">
-                                {{ __('บันทึกหน้าที่หลัก / กิจกรรมหลัก :') }}
-                            </label>
-                            <div class="col-sm-9">
-                                {!! Form::textarea('goal', null, ['class' => 'form-control', 'autofocus', 'required', 'rows' => '3']) !!}
-                            </div>
-                        </div>
-
-                        <div class="row justify-content-center">
-                            <div class="col-auto">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="bi bi-floppy2-fill fs-sm"></i>
-                                    <span class="ms-2">{{ __('บันทึก') }}</span>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div> --}}
-
-        <div class="row justify-content-center my-4">
-            <div class="card">
-                <div class="card-body bg-white">
                     <div class="table-responsive mt-3">
-                        <table class="table table-bordered table-hover">
+                        <table class="table table-bordered" style="--bs-table-bg: #fff !important">
                             <thead>
                                 <tr>
                                     <th scope="col" class="text-center text-nowrap">{{ __('No.') }}</th>

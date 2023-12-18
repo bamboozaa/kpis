@@ -57,7 +57,7 @@
                 </div>
             </div>
         </div>
-        {{-- {{ dd($indicators) }} --}}
+
         <div class="row justify-content-center my-4">
             <div class="card">
                 <div class="card-header">
