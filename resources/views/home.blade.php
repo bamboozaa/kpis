@@ -32,8 +32,10 @@
                     $endDate = $current_year + 1 . '-07-31';
                     $current_date = \Carbon\Carbon::now();
 
-                    if ($current_date >= $startDate && $current_date <= $endDate) {
-                        $current_year2 = \Carbon\Carbon::parse($current_date)->format('Y');
+                    if ($current_date >= $startDate) {
+                        $current_year2 = $current_year + 1;
+                    } else if ($current_date <= $startDate) {
+                        $current_year2 = $current_year;
                     }
                 @endphp
 
